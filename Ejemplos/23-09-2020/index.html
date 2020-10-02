@@ -7,54 +7,167 @@
     <style>
         body{text-align: center;
         font-family: Arial, Helvetica, sans-serif;}
-        header{background-color: rgb(48 48 48);
-        color: #ffffff;
-        padding-top: 2px;
-padding-bottom: 2px;
+        header{
+            background-color: rgb(48 48 48);
+            color: #fdfdfd;
+            padding-top: 2px;
+            padding-bottom: 2px;
         }
-        nav{background-color: crimson;
-        padding-top: 12px;
-        padding-bottom: 12px;}
-        section{background-color: aqua;
+    nav{
+      
+            padding-top: 12px;
+            padding-bottom: 12px;
+            
+        }
+        .boton{
+            background-color: rgb(241, 245, 247);
+           
+        }
+            
+        section{
+            background-color: rgb(150, 247, 247);
+            margin-top: 50px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            width: 80%;
+            height: 5%;
+          
+                   
         } 
+        aside{
+          width: 30%;
+          background-color: lightcoral;
+          float: right;
+          width: 20%;
+          height: 100%;}
+          
+        
         article{
-            background-color: burlywood;
+                    background-color: burlywood;
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    margin-left: 40px ;
+                    margin-right: 40px;
+                    padding-top: 2px;
+            padding-bottom: 2px;
+
         
                 }
-        
+                .contenido{
+                    background-color: rgb(118, 189, 247);
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    margin-left: 20px ;
+                    margin-right: 20px;
+                    text-align: left;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                   
+                }
+                .img{
+                    background-color: rgb(31, 83, 68);
+                    margin-top: 50px;
+                    margin-bottom: 50px;
+                    margin-left: 20px ;
+                    margin-right: 20px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                }
+               
+                
+               
+
+                footer{
+              background: #414141;
+              padding: 60px 0 30px 0;
+               
+}
+.contenido-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+
+}
+.content-foo{
+    text-align: center;
+
+}
+.contenido-foo h4{
+    color: #ffff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.contenido-foo{
+    color: #ccc;
+    cursor: pointer;
+   
+}
+.titulo-final{
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #ffffff;
+cursor: pointer;
+}            
+      
     </style>
 </head>
 <body>
         <header id="cabecera" >
-        <h1>titulo con H1</h1>
+        <h1>Titulo de la Web</h1>
         </header >
         <nav >
-            <button>
+            <button class="boton">
             <a  href="https://www.google.com "target=" _blank "> IR SECCIÓN 2 </a>
         </button>
-        <button>
+        
+        <button class="boton">
             <a  href="#cabecera " > IR SECCIÓN 3 </a>
             <a  href = " #parrafo6 " > IR AL parrafo 6 </a>
             </button>
+            
         </nav>
+        
+         
         <section>
             <h2>CONTENIDO PRINCIPAL</h2>
             <article>
-                <P>este es el contenido principal de mi web</P>
-                <div>
-                    aqui tenemos una imagen 
+              
+                <P class="contenido">Este es el contenido principal de mi web</P>
+               
+                <div class="img">
+                    <p>Aqui Teneis una Imagen </p>
+                    
                     <img src="./../../estructura-web.png"width="50%">
-                    <img src="https://como-funciona.com/wp-content/uploads/2019/09/c%C3%B3mo-funciona-un-paisaje-800x400.jpg"width="200px">
+                    
                 </div>
+                
+               
             </article>
 
-            <p> Párrafo 1: Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde la década de 1500, cuando un impresor desconocido tomó una galera de tipos y la mezcló para hacer un libro de muestras tipográfico. Ha sobrevivido no solo a cinco siglos, sino también al salto a la composición tipográfica electrónica, permaneciendo esencialmente sin cambios. Se popularizó en la década de 1960 con el lanzamiento de hojas de Letraset que contienen pasajes de Lorem Ipsum y, más recientemente, con software de autoedición como Aldus PageMaker que incluye versiones de Lorem Ipsum. </p>
-            
-        </section>
-        <aside >
-    
+           </section>
+           
+           <aside>
+            <h1>tradicir pagina</h1>
         </aside>
-        < pie de página >
+        <footer>
+            <div class="contenido-footer">
+                <div class="contenido-foo">
+                    <h4>aviso legales</h4>
+                    <p>politica de cookies</p>
+                </div>
+                <div class="contenido-foo">
+                    <h4>redes sociales</h4>
+                    <p>Mi facebook</p>
+                </div>
+            </div>
+            <h2 class="titulo-final"> &copy; alvaro_quisbert</h2>
+    
+        </footer>
     
        
 </body>
