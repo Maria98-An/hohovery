@@ -8,10 +8,21 @@
         body {
             background-color: bisque;
         }
+        p {
+            background-color: azure;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: black 2px 2px;
+            width: 30%;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>Hola JS</h1>
+
+    <p onclick="factorial()">Clic para saber el factorial :)</p>
+
 
     <script>
         let saludo = "Hola desde JavaScript"
@@ -28,8 +39,19 @@
             console.log("El mayor es b con: " + b)
         }
 
-        
+        function factorial(){
+            console.info("Clic para factorial......")
+            //Mostrar el factorial de 25
 
+            let nro = prompt("Introduzca el numero que desee generar su factorial:")
+            let fact = 1
+            for (let i = 2; i <= nro; i++) {
+                console.log(fact);
+                fact = fact * i;
+            }
+            alert("El factorial de "+nro+" es: "+fact);
+            console.info("El factorial de "+nro+" es: "+fact)
+        }
     </script>
 </body>
 </html>
