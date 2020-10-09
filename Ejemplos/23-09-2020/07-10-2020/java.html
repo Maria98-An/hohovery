@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejemplos con js </title>
+<style>
+    body{
+        background-color: bisque;
+    }
+    p{
+        background-color: azure;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: black 2px 2px;
+        width: 30%;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+
+
+<body>
+    <h1>hola js</h1>
+    <p onclick="factorial()"> clic para saber el facotrial :)</p>
+    <script>
+        //  muestra el mayor entre dos numeros 
+        let saludo ="hola desde js";
+        console.log(saludo);
+        let a=7;
+        let b=8;
+        if(a>b){
+console.log("el mayor numero es "+ a);
+        }
+        else{
+            console.log("el mayor numero es "+ b);
+
+        }
+
+function factorial(){
+    console.info("clic para factorial ...")
+    // muestra el factorial de un numero 
+let nro =prompt("introduzca el numero ");
+let fact =1;
+for( let i=2;i<=nro;i++)
+{
+    console.log(fact);
+    fact=fact*i;
+}
+alert("el factorial de "+nro+"es:" +fact );
+console.info("el factorial de "+nro+"es:" +fact);
+
+}
+    </script>
+</body>
+</html>
