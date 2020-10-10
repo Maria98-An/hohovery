@@ -14,11 +14,21 @@
         */
         
         let montoaRetirar = prompt("Inserte el monto a retirar");
-
-        alert("Usted desea retirar Bs.- " + montoaRetirar);
         
         // Validar que el monto a retirar esté en los cortes propuestos
-        
+        if(montoaRetirar % 10 == 0)
+            alert("Usted desea retirar Bs.- " + montoaRetirar)
+        else
+            alert("El monto a retirar no válido.")
+
+        /*
+        * Ejemplo: Retiro de 340
+        * 200 = 1
+        * 100 = 1
+        *  50 = 0
+        *  20 = 2
+        *  10 = 0
+        */
 
     </script>
 </body>
