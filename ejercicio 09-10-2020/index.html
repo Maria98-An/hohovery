@@ -8,11 +8,17 @@
     body{
         background-color: blanchedalmond;
     }
+    p{
+        background-color: white;
+        width: fit-content;
+        border-radius: 100%;
+        border-color: black;
+    }
 </style>
 </head>
 <body>
     <h1>Hola JS</h1>
-
+    <p onclick="factorial()">Clic para saber el factorial</p>
     <script>
         let saludo="Hola desde JavaScript"
         console.log(saludo)
@@ -23,6 +29,18 @@
         }
         else{
             console.log("El mayor es: "+b)
+        }
+        //factorial de 25 xd
+        function factorial(){
+            console.info("Clic:3")
+            let n=prompt("Introduzca el valor: ")
+            let f=1
+            for(let i=1;i<=n;i++){
+                console.log(f)
+                f=f*i
+            }
+            alert("El factorial de"+n+" es: "+f)
+            console.info("El factorial de"+n+" es: "+f)
         }
     </script>
 </body>

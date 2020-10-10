@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let montoaretirar = prompt("Inserte monto a retirar")
+        if(montoaretirar%10==0){
+            alert("Usted desea retirar Bs. "+montoaretirar)
+            let a=Math.trunc(montoaretirar/200)
+            console.log("Billetes de 200: "+a)
+            montoaretirar=montoaretirar-a*200
+            let b=Math.trunc(montoaretirar/100)
+            console.log("Billetes de 100: "+b)
+            montoaretirar=montoaretirar-b*100
+            let c=Math.trunc(montoaretirar/50)
+            console.log("Billetes de 50: "+c)
+            montoaretirar=montoaretirar-c*50
+            let d=Math.trunc(montoaretirar/20)
+            console.log("Billetes de 20: "+d)
+            montoaretirar=montoaretirar-d*20
+            let e=Math.trunc(montoaretirar/10)
+            console.log("Billetes de 10: "+e)
+            montoaretirar=montoaretirar-e*10
+        }
+        else
+        alert("El monto a retirar no es valido")
+        //Cantidad de billetes...
+    </script>
+</body>
+</html>
