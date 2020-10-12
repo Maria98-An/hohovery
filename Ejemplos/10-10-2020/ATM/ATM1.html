@@ -12,11 +12,46 @@
         *bs 10, bs 20 ,bs 50,bs 100, bs 200
         */
 let montoaretirar=prompt("insertr el monto a retirar");
-if(montoaretirar%10==0)
+if(montoaretirar % 10 == 0){
 alert("usted desea retirar Bs,- "+"montoaretirar");
-else
+muestracortes(montoaretirar);
+}else
 alert("el monto no es valido")
+function muestracortes(monto){
 
+
+/*ejemplo retiro de 340 
+*200=1
+*100=1
+*50
+*20=2
+*/
+
+let c200=0;
+c200= Math.trunc(monto /200);
+console.log("de bs.- 200="+c200);
+monto=monto-(c200*200);
+//para billetes de 200
+let c100=0;
+c100=Math.trunc(monto/100);
+console.log("de bs.- 100="+c100);
+monto=monto-(c100*100);
+
+let c50=0;
+c50=Math.trunc(monto/50);
+console.log("de bs.- 50="+c50);
+monto=monto-(c50*50);
+
+let c20=0;
+c20=Math.trunc(monto/20);
+console.log("de bs.- 20="+c20);
+monto=monto-(c20*20);
+let c10=0;
+c10=Math.trunc(monto/10);
+console.log("de bs.- 10="+c10);
+monto=monto-(c10*10);
+
+}
 
     </script>
     
