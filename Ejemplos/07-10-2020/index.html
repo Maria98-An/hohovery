@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:bisque;
+        }
+        p{
+            background-color: azure;
+            padding: 10px;
+            box-shadow: black 2px 2px;
+            border-radius: 30px;
+            width: 30%;
+            cursor: pointer;
+
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Hola JS</h1>
+    <p onclick="factorial()">click para saber el  factorial :)</p>
+    <script>
+        let saludo= "Hola desde JavaScript";
+        console.log(saludo);
+
+           //Muestra el mayor entre dos numeros
+
+        let a=7;
+        let b=8;
+
+
+
+        if(a>b){
+            console.log("El mayor es a con:"+ a);
+        }else{
+            console.log("EL mayor es b con:" + b);
+        }
+
+       
+          function factorial(){
+              console.info("Click para factorial......");
+               //mostrar el factorial de 25
+
+        let nro= prompt("Introduzca el numero que desee generar su factorial");
+         
+	     let total=1
+             for(let i=2;i<=nro;i++){
+                console.log(total);
+                total=total*i;
+             }
+             alert("El factorial de "+nro+" es:"+total);
+             console.info("El factorial del numero 25 es:"+total);
+                       
+         
+          }
+	
+    </script>
+</body>
+</html>
