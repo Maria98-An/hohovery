@@ -21,7 +21,10 @@
         <h2>Introduzca el monto a retirar:</h2>
         <input type="number" id="montoSolicitado" />
         <input type="button" id="btnSolicita" value="Solicitar" onclick="solicitaRetiro()" >
-        <section>
+        <div id="msgError">
+            Mensaje de error
+        </div>
+        <section id="msgOk">
             <h3>Se entregarán: </h3>
             <p>
             <h2 id="etiquetaBilletes200"><img
@@ -59,6 +62,10 @@
         */
         
         //let montoaRetirar = prompt("Inserte el monto a retirar");
+
+        //Ocultando mensajes
+        document.getElementById("msgError").style="display:none"
+        document.getElementById("msgOk").style="display:none"
 
         function solicitaRetiro(){
             console.log("solicita retiro");
@@ -136,8 +143,6 @@
                 document.getElementById("etiquetaBilletes10").style = "display: none;";
             else
                 document.getElementById("etiquetaBilletes10").style = "";
-
-
         }
 
     </script>
