@@ -15,6 +15,13 @@
         <h2>Introduzca el monto a retirar:</h2>
         <input type="number" id="montoSolicitado" />
         <input type="button" id="btnSolicita" value="Solicitar" onclick="solicitaRetiro()" >
+        <section>
+            <p><h2>Bs. 200.-  = [<u id="cantidadBilletes200">0</u>] </h2></p>
+            <p><h2>Bs. 100.-  = [<u id="cantidadBilletes100">0</u>] </h2></p>
+            <p><h2>Bs. 50.-  = [<u id="cantidadBilletes50">0</u>] </h2></p>
+            <p><h2>Bs. 20.-  = [<u id="cantidadBilletes20">0</u>] </h2></p>
+            <p><h2>Bs. 10.-  = [<u id="cantidadBilletes10">0</u>] </h2></p>
+        </section>
     </div>
     <script>
         //console.log(document);
@@ -71,6 +78,14 @@
             c10 = Math.trunc(monto / 10);
             console.log("De Bs.- 10 = " + c10);
             monto = monto - (c10 * 10);
+
+            // Mostrando resultados al usuario
+            document.getElementById("cantidadBilletes200").innerHTML = c200;
+            document.getElementById("cantidadBilletes100").innerHTML = c100;
+            document.getElementById("cantidadBilletes50").innerHTML = c50;
+            document.getElementById("cantidadBilletes20").innerHTML = c20;
+            document.getElementById("cantidadBilletes10").innerHTML = c10;
+             
         }
 
     </script>
