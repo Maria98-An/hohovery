@@ -19,7 +19,7 @@
 <body>
     <div>
         <h2>Introduzca el monto a retirar:</h2>
-        <input type="number" id="montoSolicitado" />
+        <input type="number" min="10" step="10" id="montoSolicitado" />
         <input type="button" id="btnSolicita" value="Solicitar" onclick="solicitaRetiro()" >
         <div id="msgError">
             Mensaje de error
@@ -71,11 +71,19 @@
             console.log("solicita retiro");
             let montoaRetirar = document.getElementById("montoSolicitado").value
             // Validar que el monto a retirar esté en los cortes propuestos
-            if(montoaRetirar % 10 == 0){
+            if(montoaRetirar % 10 == 0 && montoaRetirar > 0){
                 //alert("Usted desea retirar Bs.- " + montoaRetirar);
                 muestraCortes(montoaRetirar);
-            } else
-                alert("El monto a retirar no es válido.")
+                //Ocultando mensajes
+                document.getElementById("msgError").style="display:none"
+                document.getElementById("msgOk").style=""
+            } else {
+                //alert("El monto a retirar no es válido.")
+                //Ocultando mensajes
+                document.getElementById("msgError").style=""
+                document.getElementById("msgOk").style="display:none"
+            }
+                
         }
 
         function muestraCortes(monto){
