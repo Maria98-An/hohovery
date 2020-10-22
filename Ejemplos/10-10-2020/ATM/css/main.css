@@ -46,6 +46,10 @@ td {
 #screenLenguaje {
     
 }
+#screenPin {
+    text-align: center;
+    margin-top: 0px;
+}
 .mostrar {
     display: inline;
 }
