@@ -3,6 +3,8 @@ console.info(window.localStorage.getItem("pantallaActual"));
 
 if(window.localStorage.getItem("pantallaActual") == null){
     mostrarPantalla("screenLenguaje");
+} else {
+    mostrarPantalla(localStorage.getItem("pantallaActual"));
 }
 
 function mostrarPantalla(dato){
@@ -26,6 +28,8 @@ function changeScreen(){
     //Muestra la pantalla para ingresar PIN
     document.getElementById("screenPin").classList.remove("ocultar");
     document.getElementById("screenPin").classList.add("mostrar");
+    //Actualizando cambio de pantalla en localStorage
+    localStorage.setItem("pantallaActual", "screenPin");
 }
 function clicBtn(dato){
     console.log("presiono el btn "+dato);
@@ -39,6 +43,13 @@ function clicBtn(dato){
         let nuevoPin = document.getElementById("pin").innerHTML;
         if(Number(nuevoPin)>=0) {
             document.getElementById("pin").innerHTML = (Number(nuevoPin)/10).toFixed(0);
+        }
+    } else if(dato == "Confirmar") {
+        let pinCorrecto = "1234";
+        if(pinCorrecto == document.getElementById("pin").innerHTML){
+            alert("PIN correcto")
+        } else {
+            alert("Pin Incorrecto");
         }
     } else {
         if("[ ____ ]" == document.getElementById("pin").innerHTML){
