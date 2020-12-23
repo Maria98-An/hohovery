@@ -1,5 +1,8 @@
+//var pins = import("./../fake/pin.js");
 console.log("Iniciando JS")
 console.info(window.localStorage.getItem("pantallaActual"));
+let nroIntentos =0;
+
 
 if(window.localStorage.getItem("pantallaActual") == null){
     mostrarPantalla("screenLenguaje");
@@ -44,12 +47,35 @@ function clicBtn(dato){
         if(Number(nuevoPin)>=0) {
             document.getElementById("pin").innerHTML = (Number(nuevoPin)/10).toFixed(0);
         }
-    } else if(dato == "Confirmar") {
+    } else if(dato == "Confirmar") {        
+        fetch("./../fake/pin.json")
+        .then(res =>{
+            console.info(res);
+        }).catch(error => {
+            console.error(error);
+        })
+        //console.log(pins);
+        
         let pinCorrecto = "1234";
+        
         if(pinCorrecto == document.getElementById("pin").innerHTML){
             alert("PIN correcto")
         } else {
-            alert("Pin Incorrecto");
+            // Primera solución
+            //document.getElementById("pin").innerHTML = "[ ____ ]"
+            // Segunda solución
+            //clicBtn('Cancelar');
+            // Tercera opción
+            document.getElementById("btnCancelar").click();
+            document.getElementById("msjErrorPin").style="";
+
+            setTimeout(() => {
+                document.getElementById("msjErrorPin").style="display:none;";
+            }, 3000);
+            nroIntentos= nroIntentos+1;
+            if(nroIntentos>3){
+                alert("Ups!!! ve al banco para solicitar tu tarjeta..... :(");
+            }
         }
     } else {
         if("[ ____ ]" == document.getElementById("pin").innerHTML){
