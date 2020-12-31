@@ -134,5 +134,4 @@ status:400
 En este backend se trabajo desde el 25 de diciembre,  viendo los videos de las clases para guiarme mejor  todo estara en la  carpeta BackendPardo, en  la subcarpeta Apidoc
 
 
-https://github.com/pardo422/Sistema_Mobiliario/tree/BackendPArdo/Apidoc
-
+https://github.com/Brb-code/hohovery/tree/PARDO/Apidoc
