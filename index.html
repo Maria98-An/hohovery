@@ -9,6 +9,14 @@
 
 <body>
     <h2>Formulario de registro</h2>
+    <form method="POST">
+        <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" /><br />
+        <input id="email" name="email" type="email" required placeholder="Correo electrónico" /><br />
+        <input id="contraseña" name="contraseña" type="password" required placeholder="Contraseña" /><br />
+        <input id="esadmin" name="esadmin" type="checkbox" placeholder="Es admin" /><br />
+        <input type="submit" value="Registrar" />
+        <input type="reset" value="Limpiar" />
+    </form>
     <h2>Lista de Usuarios</h2>
     <table border="1">
         <thead>
@@ -18,10 +26,27 @@
             <th>Es admin?</th>
             <th></th>
         </thead>
-        <tbody>
-
-        </tbody>
+        <tbody id="tabla"></tbody>
     </table>
+    <button onclick="actualizarDatos()">Actualizar</button>
+    <script>
+        function actualizarDatos() {
+            fetch('http://localhost/hohovery/api/?endpoint=usuario')
+                .then(respuesta => respuesta.json())
+                .then(datos => {
+                    console.log(datos);
+                    let datosHTML = "";
+                    for (let i = 0; i < datos.length; i++) {
+                        datosHTML += "<tr><td>" + datos[i].id + "</td><td>" + datos[i].nombre_completo + "</td><td>" + datos[i].email + "</td><td>" + datos[i].isadmin + "</td><td></td></tr>"
+                    }
+                    document.getElementById("tabla").innerHTML = datosHTML;
+                })
+                .catch(err => {
+                    console.warn(err);
+                    alert("No se obtener los datos.");
+                })
+        }        
+    </script>
 </body>
 
 </html>

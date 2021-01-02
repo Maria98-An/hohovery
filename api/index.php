@@ -16,19 +16,6 @@ if(!isset($_REQUEST["endpoint"]) && $_SERVER['REQUEST_METHOD']=='GET'){
     $json = json_decode($data);
     $_POST = get_object_vars($json);
     switch ($_REQUEST["endpoint"]) {
-        case 'login':
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                
-                if($_POST['usuario'] == 'admin' && $_POST['contraseña'] == 'admin'){
-                    $data = array("token"=>"asdasdasdasdasd", "rol"=>'Administrador');
-                    resData(200, $data);                    
-                } else {
-                    resMsg(200, "Usuario y/o contraseña incorrecta.");                    
-                }
-            } else {
-                resMsg(404, "Método no válido para el endpoint login");                
-            }
-            break;
         case 'usuario':
             if($_SERVER['REQUEST_METHOD']=='GET' && $_REQUEST['id']){
                 getOneUsuario($_REQUEST['id']);
