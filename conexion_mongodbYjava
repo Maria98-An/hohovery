@@ -1,0 +1,101 @@
+package crudmongodb;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+public class CrudMongodb {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        MongoClient mongo = crearConexion();
+        
+        // SI NO EXISTE LA BASE DE DATOS LA CREAMOS
+        if(mongo != null) {
+            DB db = mongo.getDB("Pruebas");
+            System.out.println("base de datos creada");
+            /*insertarUsuario(db,"usuarios","sergio","1234");
+            insertarUsuario(db,"usuarios","maria","2222");
+            insertarUsuario(db,"usuarios","pedro","1111");
+            mostrarColeccion(db,"usuarios");
+            actualizar(db,"usuarios","sergio");
+            buscarPorNombre(db,"usuarios", "sergio");
+            eliminar(db,"usuarios","8888");
+            mostrarColeccion(db,"usuarios");*/
+            mostrarColeccion(db,"usuarios");
+            
+            
+        }
+        
+    
+    
+    }
+
+    public static MongoClient crearConexion() {
+        System.out.println("PRUEBA CONEXION MONGODB");
+        MongoClient mongo = null;
+        mongo = new MongoClient("localhost", 27017);
+        return mongo;
+       
+    }
+
+   public static void insertarUsuario(DB db, String coleccion, String nombre, String ci, String ciudad, String contraseña) {
+        DBCollection colec = db.getCollection(coleccion);
+        
+        // CREA EL DOCUMENTO(REGISTRO) E INSERTA LA INFORMACION RECIBIDA
+        BasicDBObject documento = new BasicDBObject();
+        documento.put("nombre", nombre);
+        documento.put("ci", ci);
+        documento.put("ciudad", ciudad);
+        documento.put("contraseña", contraseña);
+        
+        colec.insert(documento);
+        
+    }
+   public static void mostrarColeccion(DB db, String coleccion) {
+        DBCollection colec = db.getCollection(coleccion);
+        
+        DBCursor cursor = colec.find();
+       
+        while(cursor.hasNext()) {
+            System.out.println("* "+ cursor.next().get("nombre") + " - " + cursor.curr().get("ci")+ " - " + cursor.curr().get("ciudad")+" - "+ cursor.curr().get("contraseña"));
+        }
+    }
+    public static void buscarPorNombre(DB db, String coleccion, String nombre) {
+        DBCollection colect = db.getCollection(coleccion);
+        
+        // CREAMOS LA CONSULTA CON EL CAMPO NOMBRE
+        BasicDBObject consulta = new BasicDBObject();
+        consulta.put("nombre", nombre);
+        
+        // BUSCA Y MUESTRA TODOS LOS DOCUMENTOS QUE COINCIDAN CON LA CONSULTA
+        DBCursor cursor = colect.find(consulta);
+        while(cursor.hasNext()) {
+            System.out.println("-- " + cursor.next().get("nombre") + " - " + cursor.curr().get("ci")+ " - " + cursor.curr().get("ciudad")+ " - " + cursor.curr().get("contraseña"));
+        }
+    }
+    public static void actualizar(DB db, String coleccion, String nombre) {
+        DBCollection colec = db.getCollection(coleccion);
+        
+        // SENTENCIA CON LA INFORMACION A REMPLAZAR
+        BasicDBObject actualizarCi = new BasicDBObject();
+        actualizarCi.append("$set", new BasicDBObject().append("ci", "8888"));
+        
+        // BUSCA EL DOCUMENTO EN LA COLECCION
+        BasicDBObject buscarPorNombre = new BasicDBObject();
+        buscarPorNombre.append("nombre", nombre);
+        
+        // REALIZA EL UPDATE
+        colec.updateMulti(buscarPorNombre, actualizarCi);
+    }
+    
+    // METODO PARA ELIMINAR UN DOCUMENTO (REGISTRO)
+    public static void eliminar(DB db, String coleccion, String nombre) {
+        DBCollection colec = db.getCollection(coleccion);
+        
+        colec.remove(new BasicDBObject().append("ci", nombre));
+    }
+}
